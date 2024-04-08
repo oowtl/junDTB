@@ -1,4 +1,4 @@
-import Post from "./Post";
+import Post from "./PostBox";
 
 export default function PostList({ postsData }) {
   return (
