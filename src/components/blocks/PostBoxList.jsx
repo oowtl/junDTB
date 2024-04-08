@@ -1,8 +1,9 @@
-import Post from "./Post";
+import Post from "./PostBox";
+import Sidebar from "./Sidebar";
 
 export default function PostList({ postsData }) {
   return (
-    <section className="max-w-screen-md">
+    <section className="max-w-screen-md mx-auto relative">
       {postsData.map((post, idx) => {
         return (
           <Post
@@ -15,6 +16,8 @@ export default function PostList({ postsData }) {
           />
         );
       })}
+
+      <Sidebar postsData={postsData} />
     </section>
   );
 }

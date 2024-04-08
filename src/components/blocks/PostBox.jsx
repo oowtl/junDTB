@@ -1,5 +1,5 @@
 import Thumbnail from "../atoms/Thumbnail";
-import Tag from "../atoms/Tag";
+import Tag from "../atoms/HashTag";
 
 /**
  *

@@ -8,18 +8,15 @@ import { Link, useLocation } from "react-router-dom";
  *
  */
 export default function NaviButton({ path, name, elemType }) {
-  let { pathname: curLocation } = useLocation();
-
-  const matchLocation = curLocation === path;
+  const { pathname: curLocation } = useLocation();
+  const isMatched = curLocation.includes(path);
 
   return (
     <>
       {elemType === "list" && (
         <li
-          className={`flex items-center border-y-8 border-transparent ${matchLocation && "border-b-black"}`}>
-          <Link
-            to={path}
-            className={`text-2xl ${matchLocation && "font-bold"}`}>
+          className={`flex items-center border-y-8 border-transparent ${isMatched && "border-b-black"}`}>
+          <Link to={path} className={`text-2xl ${isMatched && "font-bold"}`}>
             {name}
           </Link>
         </li>

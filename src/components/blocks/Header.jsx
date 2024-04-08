@@ -6,7 +6,7 @@ export default function Header() {
     <nav className="flex justify-between">
       <Logo />
       <ul className="flex gap-5">
-        <NaviButton path="/" name="POSTS" elemType="list" />
+        <NaviButton path="/posts" name="POSTS" elemType="list" />
         <NaviButton path="/about" name="ABOUT" elemType="list" />
       </ul>
     </nav>
