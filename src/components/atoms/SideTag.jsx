@@ -26,7 +26,7 @@ export default function SideTag({
   return (
     <>
       {elemType === "list" && (
-        <li>
+        <li className="mb-1">
           <Link
             to={selectPath ? selectPath : `posts/${tagName}`}
             className={`${isMatchedPath && "font-bold text-green-500"}`}>

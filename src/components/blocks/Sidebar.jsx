@@ -16,8 +16,8 @@ export default function Sidebar({ postsData }) {
     }, {});
 
   return (
-    <aside>
-      <p className="text-lg">태그목록</p>
+    <aside className="absolute top-0 -left-40">
+      <p className="text-lg mb-3 pb-2 border-b border-gray-400">태그 목록</p>
       <ul>
         <SideTag
           tagName="total"

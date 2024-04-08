@@ -6,12 +6,12 @@ import {
 
 // PAGES
 import Home from "./pages/Home";
-import Post from "./components/blocks/PostBox";
+import Posts from "./pages/Posts";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Home />}>
-      <Route path="posts?/:tagName" element={<Post />}></Route>
+      <Route path="posts?/:tagName" element={<Posts />}></Route>
     </Route>,
   ),
 );

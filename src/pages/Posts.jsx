@@ -1,7 +1,6 @@
 import Header from "../components/blocks/Header";
 import Footer from "../components/blocks/Footer";
-import Sidebar from "../components/blocks/Sidebar";
-import PostList from "../components/blocks/PostBoxList";
+import PostBoxList from "../components/blocks/PostBoxList";
 
 // dummy data
 import dummy from "../articles/dummy.json";
@@ -11,9 +10,8 @@ export default function Posts() {
   return (
     <div>
       <Header />
-      <main>
-        <Sidebar postsData={posts} />
-        <PostList postsData={posts} />
+      <main className="relative">
+        <PostBoxList postsData={posts} />
       </main>
       <Footer />
     </div>
