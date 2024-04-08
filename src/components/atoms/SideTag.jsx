@@ -1,10 +1,11 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 
 /**
  *
  * @param {string} tagName
  * @param {number} tagQuantity
- * @param {selectPath}
+ * @param {'list'} elemType
+ * @param {string} selectPath
  * @returns
  */
 export default function SideTag({
@@ -14,9 +15,13 @@ export default function SideTag({
   selectPath,
 }) {
   const { tagName: paramTagName } = useParams();
+  const { pathname } = useLocation();
+  const isMatchedRoot = pathname === "/";
 
-  const isMatched =
-    paramTagName === "posts" ? tagName === "total" : paramTagName === tagName;
+  const isMatchedPath =
+    isMatchedRoot || paramTagName === "posts"
+      ? tagName === "total"
+      : paramTagName === tagName;
 
   return (
     <>
@@ -24,7 +29,7 @@ export default function SideTag({
         <li>
           <Link
             to={selectPath ? selectPath : `posts/${tagName}`}
-            className={`${isMatched && "font-bold text-green-500"}`}>
+            className={`${isMatchedPath && "font-bold text-green-500"}`}>
             {tagName} ({tagQuantity})
           </Link>
         </li>
