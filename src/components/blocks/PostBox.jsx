@@ -1,3 +1,6 @@
+import { useNavigate } from "react-router-dom";
+
+// COMPONENTS
 import Thumbnail from "../atoms/Thumbnail";
 import Tag from "../atoms/HashTag";
 
@@ -11,8 +14,17 @@ import Tag from "../atoms/HashTag";
  * @returns
  */
 export default function Post({ title, content, imageUrl, tags, createdAt }) {
+  const navigate = useNavigate();
+  const handleClickPost = (e, navigate, title) => {
+    e.stopPropagation();
+    navigate(`/content/${title}`);
+  };
+
   return (
-    <article>
+    <article
+      onClick={(e) => {
+        handleClickPost(e, navigate, title);
+      }}>
       <Thumbnail title={title} imageUrl={imageUrl} />
       <h2>{title}</h2>
       <p>{content}</p>
