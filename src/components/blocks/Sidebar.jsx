@@ -20,19 +20,22 @@ export default function Sidebar({ postsData }) {
     <aside className="absolute top-0 -left-40">
       <p className="text-lg mb-3 pb-2 border-b border-gray-400">태그 목록</p>
       <ul>
-        <SideTag
-          tagName="total"
-          tagQuantity={totalLength}
-          elemType="list"
-          selectPath="/posts"
-        />
-        {Object.keys(tagData).map((tagName, idx) => (
+        <li className="mb-1">
           <SideTag
-            tagName={tagName}
-            tagQuantity={tagData[tagName]}
+            tagName="total"
+            tagQuantity={totalLength}
             elemType="list"
-            key={idx}
+            selectPath="/posts"
           />
+        </li>
+        {Object.keys(tagData).map((tagName, idx) => (
+          <li key={idx} className="mb-1">
+            <SideTag
+              tagName={tagName}
+              tagQuantity={tagData[tagName]}
+              elemType="list"
+            />
+          </li>
         ))}
       </ul>
     </aside>
