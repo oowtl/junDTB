@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useParams, useMatch } from "react-router-dom";
 
 /**
  *
@@ -15,21 +15,24 @@ export default function SideTag({
   selectPath,
 }) {
   const { tagName: paramTagName } = useParams();
-  const { pathname } = useLocation();
-  const isMatchedRoot = pathname === "/";
 
-  const isMatchedPath =
-    isMatchedRoot || paramTagName === "posts"
-      ? tagName === "total"
-      : paramTagName === tagName;
+  const matchPostsTagName = useMatch("/posts/:tagName");
+  const matchTotalByTagName = tagName === "total";
+  const matchParamTagNameByTagName = tagName === paramTagName;
+
+  // root, /post, etc => total
+  // post/:tagName => 일치할 때 Active
+  const isActive = matchPostsTagName
+    ? matchParamTagNameByTagName
+    : matchTotalByTagName;
 
   return (
     <>
       {elemType === "list" && (
         <li className="mb-1">
           <Link
-            to={selectPath ? selectPath : `posts/${tagName}`}
-            className={`${isMatchedPath && "font-bold text-green-500"}`}>
+            to={selectPath ? selectPath : `/posts/${tagName}`}
+            className={`${isActive && "font-bold text-green-500"}`}>
             {tagName} ({tagQuantity})
           </Link>
         </li>

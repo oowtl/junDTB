@@ -1,3 +1,4 @@
+// Components
 import SideTag from "../atoms/SideTag";
 
 export default function Sidebar({ postsData }) {
