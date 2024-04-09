@@ -10,7 +10,8 @@ import Posts from "./pages/Posts";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/" element={<Home />}>
+    <Route>
+      <Route path="/" index element={<Home />}></Route>
       <Route path="posts?/:tagName" element={<Posts />}></Route>
     </Route>,
   ),
